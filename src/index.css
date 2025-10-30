@@ -7,7 +7,7 @@ All colors MUST be HSL.
 */
 /* === GLOBAL ZOOM & PADDING FIX === */
 body {
-  zoom: 1.2; /* Slight zoom like 125% browser zoom */
+  zoom: 1.1; /* Slight zoom like 125% browser zoom */
 }
 
 /* Optional: reduce left and right padding globally */
