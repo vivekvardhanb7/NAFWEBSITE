@@ -23,15 +23,15 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen pt-32 pb-20 px-4">
+    <section id="home" className="pt-20 pb-12 px-4">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-10 items-center">
           {/* Left side - Text Content */}
           <div className="text-left animate-fade-in">
-            <h1 className="font-power font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 tracking-tight leading-tight">
+            <h1 className="font-power font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground mb-3 md:mb-4 tracking-tight leading-tight">
               {t.hero.headline}
             </h1>
-            <p className="font-satoshi text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="font-satoshi text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 leading-relaxed">
               {t.hero.subheadline}
             </p>
             <AnimatedButton onClick={scrollToContact} className="mx-0">
@@ -47,7 +47,7 @@ const Hero = () => {
                 background: "linear-gradient(180deg, hsl(90 100% 71% / 0.3) 0%, hsl(0 0% 5.5%) 100%)",
               }}
             />
-            <div className="relative p-8">
+            <div className="relative p-3 md:p-6">
               <div className="relative overflow-hidden rounded-xl">
                 <img
                   src={heroDashboard}
