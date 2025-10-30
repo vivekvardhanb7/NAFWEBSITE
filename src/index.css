@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 5.5%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 9.4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 9.4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 90 100% 71%;
+    --primary-foreground: 0 0% 5.5%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 70%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 6 100% 69%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 90 100% 71%;
+
+    --radius: 1.5rem;
+
+    /* Custom NAF tokens */
+    --neon-green: 90 100% 71%;
+    --coral: 6 100% 69%;
+    --dark-bg: 0 0% 5.5%;
+    --card-bg: 0 0% 9.4%;
+    --text-gray: 0 0% 70%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(90 100% 71% / 0.3) 0%, hsl(0 0% 5.5%) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(6 100% 69%) 0%, hsl(25 100% 60%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 40px hsl(90 100% 71% / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'PowerGrotesk', sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .glow-green {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .scroll-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  /* Contact Form Styles - Matching Screenshot Design */
+  #contact input,
+  #contact textarea,
+  #contact select {
+    @apply bg-transparent border-0 border-b border-white/20 text-foreground w-full px-0 rounded-none
+           focus:outline-none focus:border-white/50 focus-visible:ring-0 focus-visible:ring-offset-0
+           transition-all duration-300;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  #contact input::placeholder,
+  #contact textarea::placeholder {
+    @apply text-white/30;
+  }
+
+  #contact input:focus,
+  #contact textarea:focus,
+  #contact select:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Remove all focus indicators completely */
+  #contact input:focus-visible,
+  #contact textarea:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    ring: 0 !important;
+  }
+
+  /* Remove default focus transform */
+  #contact input:focus,
+  #contact textarea:focus {
+    transform: none;
+  }
+
+  /* Form labels in contact section */
+  #contact label {
+    @apply text-white/60 text-sm font-normal;
+  }
+
+  /* Square checkboxes for contact form - FORCE SQUARE SHAPE */
+  #contact button[role="checkbox"],
+  #contact [type="checkbox"] {
+    border-radius: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    background-color: transparent !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  #contact button[role="checkbox"][data-state="checked"],
+  #contact [type="checkbox"]:checked {
+    background-color: transparent !important;
+    border-color: hsl(var(--primary)) !important;
+  }
+
+  /* Checkmark style - tick inside square */
+  #contact button[role="checkbox"][data-state="checked"]::after,
+  #contact [type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 5px;
+    height: 10px;
+    border: solid hsl(var(--primary));
+    border-width: 0 2px 2px 0;
+  }
+
+  /* Remove focus ring from checkboxes */
+  #contact button[role="checkbox"]:focus,
+  #contact button[role="checkbox"]:focus-visible,
+  #contact [type="checkbox"]:focus,
+  #contact [type="checkbox"]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    ring: 0 !important;
+  }
+
+  /* Adjust spacing between form fields */
+  #contact .form-item {
+    @apply mb-10;
+  }
+
+  /* General form styles for other sections (keep original) */
+  form:not(#contact form) input,
+  form:not(#contact form) textarea,
+  form:not(#contact form) select {
+    @apply bg-transparent border-b border-border text-foreground w-full 
+           focus:outline-none focus:border-primary transition-all duration-300;
+  }
+
+  form:not(#contact form) input::placeholder,
+  form:not(#contact form) textarea::placeholder {
+    @apply text-muted-foreground;
+  }
+
+  form:not(#contact form) input:focus,
+  form:not(#contact form) textarea:focus,
+  form:not(#contact form) select:focus {
+    box-shadow: none !important;
+  }
+
+  form:not(#contact form) input,
+  form:not(#contact form) textarea {
+    position: relative;
+  }
+
+  form:not(#contact form) input:focus,
+  form:not(#contact form) textarea:focus {
+    border-color: hsl(var(--primary));
+    transform: translateY(-1px);
+  }
+
+  form:not(#contact form) .form-item {
+    @apply mb-6;
+  }
+}

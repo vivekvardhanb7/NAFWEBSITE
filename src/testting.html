@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in Touch & Secure Your Trade Fair Advantages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #000000 60%, #0a0a0a 100%);
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 255, 100, 0.05);
+    }
+
+    .green-glow {
+      border: 1px solid rgba(0, 255, 100, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .green-glow:focus {
+      outline: none;
+      border-color: #00ff66;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    .submit-btn {
+      border: 2px solid #00ff66;
+      color: #00ff66;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #00ff66;
+      color: #000;
+      box-shadow: 0 0 20px #00ff66;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center px-4 py-10">
+  
+  <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">
+    Get in Touch & Secure Your Trade Fair Advantages
+  </h1>
+
+  <form class="glass max-w-2xl w-full p-8 md:p-10 space-y-6">
+    
+    <!-- Contact Info -->
+    <div>
+      <label class="block text-sm mb-1">Full Name / Contact Person*</label>
+      <input type="text" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="Enter your name" />
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1">Company / Organization*</label>
+      <input type="text" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="Company name" />
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1">Email Address*</label>
+      <input type="email" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="Enter your email" />
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1">Phone Number*</label>
+      <input type="text" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="+49 ..." />
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1">Location / Region*</label>
+      <input type="text" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="Enter your region" />
+    </div>
+
+    <!-- Interest Checkboxes -->
+    <div>
+      <label class="block text-sm mb-3">Areas of Interest*</label>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <label><input type="checkbox" class="mr-2">Gourmet Vending Machine (hot meals)</label>
+        <label><input type="checkbox" class="mr-2">Pizza Vending Machine</label>
+        <label><input type="checkbox" class="mr-2">Soft-Ice Machine</label>
+        <label><input type="checkbox" class="mr-2">Snack Machine</label>
+        <label><input type="checkbox" class="mr-2">Beverage Machine</label>
+        <label><input type="checkbox" class="mr-2">Return Station</label>
+        <label><input type="checkbox" class="mr-2">NAF.Cloud & Software Solutions</label>
+      </div>
+    </div>
+
+    <!-- DEHOGA -->
+    <div>
+      <label class="block text-sm mb-3">Are you a DEHOGA Member?</label>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <label><input type="radio" name="dehoga" class="mr-2">Yes, I am a DEHOGA Member</label>
+        <label><input type="radio" name="dehoga" class="mr-2">No, not yet</label>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label class="block text-sm mb-1">Message / Project Description</label>
+      <textarea rows="4" class="w-full p-3 bg-transparent green-glow rounded-md" placeholder="Tell us about your project..."></textarea>
+    </div>
+
+    <!-- GDPR -->
+    <div class="flex items-start space-x-2 text-sm">
+      <input type="checkbox" required class="mt-1">
+      <p>I agree to the storage and processing of my data for contact purposes in accordance with GDPR.</p>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center pt-4">
+      <button type="submit" class="submit-btn px-8 py-3 rounded-full font-semibold text-lg">
+        Submit & Claim Your Offer
+      </button>
+    </div>
+
+  </form>
+
+  <p class="text-gray-400 text-sm mt-8 text-center max-w-lg">
+    Our team will review your request and get back to you shortly.
+  </p>
+
+</body>
+</html>
